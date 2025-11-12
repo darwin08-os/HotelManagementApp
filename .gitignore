@@ -1,0 +1,64 @@
+# =========================
+# Solution / Parent Folder
+# =========================
+
+# Ignore NuGet packages folder (solution-level)
+packages/
+
+# Ignore user-specific files
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Ignore build results for any project
+**/bin/
+**/obj/
+
+# Ignore EF Migrations compiled output
+**/Migrations/obj/
+**/Migrations/bin/
+
+# Ignore Visual Studio temporary files
+.vs/
+*.vs/
+*.ncrunch*
+*.nupkg
+*.snk
+*.log
+
+# LocalDB / SQL Server files
+**/*.mdf
+**/*.ldf
+
+# Backup, temp, and crash files
+*.bak
+*.tmp
+*.temp
+*.dmp
+
+# Rider IDE files
+.idea/
+
+# Visual Studio Code settings
+.vscode/
+
+# Publish output
+*.Publish.xml
+*.pubxml
+*.publishproj
+App_Data/
+
+# Scaffold readme
+ScaffoldingReadMe.txt
+
+# User secrets / sensitive data
+secrets.json
+appsettings.*.json
+*.local.json
+*.dbmdl
+
+# ReSharper / JetBrains
+_ReSharper*/
+*.[Rr]e[Ss]harper
+*.DotSettings.user

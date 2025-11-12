@@ -1,0 +1,42 @@
+﻿@model IEnumerable<HotelManagementApp.Models.Room>
+@{
+    ViewBag.Title = "Available Rooms";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h2>Available Rooms</h2>
+<hr />
+<table class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>Room Number</th>
+            <th>Price/Night</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var room in Model)
+        {
+            <tr>
+                <td>@room.RoomNumber</td>
+                <td>@room.PricePerNight</td>
+                <td>
+                    @using (Html.BeginForm("Book", "Booking", FormMethod.Post))
+                    {
+                        @Html.Hidden("roomId", room.RoomId)
+                        <div class="row">
+                            <div class="col">
+                                <input type="date" name="checkIn" required class="form-control" />
+                            </div>
+                            <div class="col">
+                                <input type="date" name="checkOut" required class="form-control" />
+                            </div>
+                            <div class="col">
+                                <button type="submit" class="btn btn-primary">Book</button>
+                            </div>
+                        </div>
+                    }
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

@@ -1,0 +1,37 @@
+﻿@model IEnumerable<HotelManagementApp.Models.Booking>
+@{
+    ViewBag.Title = "My Bookings";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h2>My Bookings</h2>
+<hr />
+<table class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>Booking ID</th>
+            <th>Room</th>
+            <th>Check In</th>
+            <th>Check Out</th>
+            <th>Status</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var b in Model)
+        {
+            <tr>
+                <td>@b.BookingId</td>
+                <td>@b.Room.RoomNumber</td>
+                <td>@b.CheckInDate.ToShortDateString()</td>
+                <td>@b.CheckOutDate.ToShortDateString()</td>
+                <td>@b.Status</td>
+                <td>
+                    @if (b.Status == "Booked")
+                    {
+                        <a href="@Url.Action("Cancel","Booking", new { id = b.BookingId })" class="btn btn-danger btn-sm">Cancel</a>
+                    }
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
